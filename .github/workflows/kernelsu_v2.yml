@@ -62,5 +62,5 @@ jobs:
           name: "Twilight_KernelSU-V2-grus_CI-${{ env.BUILD_TIME }}"
           tag: " ${{ env.BUILD_TIME }}_MI9SE_kernelsu-CI_${{ github.run_number }}"
           bodyFile: "INFO.txt"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
 
