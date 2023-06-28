@@ -1,3 +1,5 @@
+FOR TEST PURPOSE
+
 [中文文档](https://github.com/Tkiliay/kernel_build/blob/main/README_CN.md)
 # Kernel Build For Grus
 **CI Build Kernel for MI 9 SE**  
