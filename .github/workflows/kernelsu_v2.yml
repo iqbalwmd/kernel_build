@@ -21,12 +21,6 @@ jobs:
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/aarch64-linux-android-4.9
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/arm-linux-androideabi-4.9
           git clone https://github.com/Tkiliay/AnyKernel3.git -b grus_kernelsu
-      - name: Applying Kernel Patch
-        run: |
-           cd android_kernel_xiaomi_sdm710/KernelSU
-           wget https://github.com/SakuraNotStupid/KernelSU/commit/7a6f621bfec513732bc97260186a89a79ff66387.patch
-           patch -p1 < 7a6f621bfec513732bc97260186a89a79ff66387.patch
-           rm -rf *.patch
       - name: Compiling Kernel
         run: |
           CLANG=~/clang/bin
