@@ -17,10 +17,12 @@ jobs:
       - name: Cloning Sources and Toolchain
         run: |
           git clone https://github.com/Tkiliay/android_kernel_xiaomi_sm8250.git --depth=1 -b test --recurse-submodules android_kernel_xiaomi_sm8250
-          git clone https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r450784 --depth=1 --single-branch --no-tags -b 12.1 ~/clang
           git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 -b lineage-19.1 --depth=1 --single-branch --no-tags ~/aarch64-linux-android-4.9
           git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 -b lineage-19.1 --depth=1 --single-branch --no-tags ~/arm-linux-androideabi-4.9
           git clone https://github.com/Tkiliay/AnyKernel3.git -b alioth
+          mkdir -p ~/clang
+          cd ~/clang
+          bash <(curl -s "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman") -S
       - name: Compiling Kernel
         run: |
           CLANG=~/clang/bin
