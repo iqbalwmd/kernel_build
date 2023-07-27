@@ -11,7 +11,7 @@ jobs:
       - name: Installing Dependencies
         run: |
           sudo apt update -y
-          sudo apt-get install -y zip flex bison libncurses-dev gawk  libiberty-dev autoconf kmod bc build-essential gcc libc6 curl libstdc++6 git wget libssl-dev cpio p7zip-full
+          sudo apt-get install -y zip flex bison libncurses-dev gawk glibc-source libiberty-dev autoconf kmod bc build-essential gcc libc6 curl libstdc++6 git wget libssl-dev cpio p7zip-full
           sudo apt clean
           echo "BUILD_TIME=$(TZ=Asia/Shanghai date +%F)" >> $GITHUB_ENV
       - name: Cloning Sources and Toolchain
@@ -64,6 +64,6 @@ jobs:
         with:
           artifacts: Twilight-V2-CI-${{ env.BUILD_TIME }}-alioth-AOSP.zip
           name: "Twilight-V2-alioth_CI-${{ env.BUILD_TIME }}"
-          tag: " ${{ env.BUILD_TIME }}_MI9SE_kernelsu-CI_${{ github.run_number }}"
+          tag: " ${{ env.BUILD_TIME }}_Alioth_kernelsu-CI_${{ github.run_number }}"
           bodyFile: "INFO.txt"
           token: ${{ secrets.GITHUB_TOKEN }}
