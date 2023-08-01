@@ -55,12 +55,9 @@ jobs:
           Code: Grus
           Build Code: ${{ github.run_number }}
           Twilight Kernel For MI9SE" >> INFO.txt
-      - name: Uploading Kernel Package to GH-Release
-        uses: ncipollo/release-action@v1.8.6
+      - name: Upload Kernel
+        uses: actions/upload-artifact@master
+        if: always()
         with:
-          artifacts: Twilight_KernelSU-V2-CI-${{ env.BUILD_TIME }}-grus-AOSP.zip
-          name: "Twilight_KernelSU-V2-grus_CI-${{ env.BUILD_TIME }}"
-          tag: " ${{ env.BUILD_TIME }}_MI9SE_kernelsu-CI_${{ github.run_number }}"
-          bodyFile: "INFO.txt"
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+          name: Kernel
+          path: Twilight_KernelSU-V2-CI-${{ env.BUILD_TIME }}-grus-AOSP.zip
